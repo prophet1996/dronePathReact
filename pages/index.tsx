@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useState } from "react";
 import Grid from "../components/Grid";
 import { ThemeProvider, useTheme } from "../hooks/useTheme";
-import { AppWrapper, GridHeading } from "./_styles";
+import { AppWrapper, GridHeading } from "../styles/pages";
 import GlobalStyles from "../styles/global";
 
 const Home: NextPage = () => {
