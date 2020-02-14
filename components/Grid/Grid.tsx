@@ -24,11 +24,11 @@ const Grid: FunctionComponent<GridType> = ({ gridX, gridY }) => {
   return (
     <GridWrapper>
       {columns.map((col, i) => (
-        <ColWrapper>
+        <ColWrapper key={`col-${i}`}>
           <ColHeading> Col {i}</ColHeading>
 
           {col.map((cell, j) => (
-            <CellWrapper i={i}>
+            <CellWrapper key={`cell-${j}`}>
               <RowHeading>{i === 0 && j}</RowHeading>
               {cell}
             </CellWrapper>

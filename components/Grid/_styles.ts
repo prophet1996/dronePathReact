@@ -3,7 +3,8 @@ import styled from "styled-components";
 export const CellWrapper = styled.div`
   margin: 1em;
   cursor: pointer;
-  position: ${({ i }) => i === 0 && "relative"};
+  position: relative;
+  display: flex;
 `;
 export const ColHeading = styled.h3`
   margin: 1em;

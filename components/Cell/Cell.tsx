@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from "react";
 // import { Grid as GridType } from "../../types";
 import { Cell as CellType } from "../../types";
+import { StyledCell } from "./_styles";
 
-const Grid: FunctionComponent<CellType> = ({ state }) => {
-  return <div>Cell : {state}</div>;
+const Cell: FunctionComponent<CellType> = ({ state }) => {
+  return <StyledCell>{state}</StyledCell>;
 };
-
-export default Grid;
+export default Cell;
