@@ -6,17 +6,21 @@ export interface Grid {
 }
 
 export enum State {
-  S = "S",
-  E = "E",
-  T = "U",
-  B = "D",
-  L = "L",
-  R = "R",
-  D = "D"
+  S = "S", //start
+  E = "E", //end
+  T = "T", //top
+  B = "B", //bottom
+  R = "R", //right
+  L = "L", //left
+  D = "D", //disabled
+  U = "U" //unselected
 }
 
 export interface Cell {
   state: State;
+  x: number;
+  y: number;
+  onCellClick: CallableFunction;
 }
 
 export type useEffectDarkMode = (

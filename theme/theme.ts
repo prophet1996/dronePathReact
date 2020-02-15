@@ -3,6 +3,10 @@ const black = "#181818";
 
 const cardWhite = "#3c3c3c";
 const cardBlack = "#8d8f90";
+// const white2 = "#f5f5f5";
+// const black2 = "#c2c2c2";
+//   backgroundSecondary: white2
+//   backgroundSecondary: black2
 
 const themeLight = {
   background: white,
@@ -24,6 +28,6 @@ const themeDark = {
   cardColor: cardWhite
 };
 
-const theme = (mode: string) => (!(mode === "dark") ? themeDark : themeLight);
+const theme = (mode: string) => (mode === "dark" ? themeDark : themeLight);
 
 export default theme;

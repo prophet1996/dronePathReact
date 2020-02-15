@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const CellWrapper = styled.div`
   margin: 1em;
-  cursor: pointer;
   position: relative;
   display: flex;
 `;
