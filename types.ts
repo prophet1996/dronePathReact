@@ -3,10 +3,10 @@ import { Dispatch, SetStateAction } from "react";
 export enum State {
   S = "S", //start
   E = "E", //end
-  T = "T", //top
-  B = "B", //bottom
-  R = "R", //right
-  L = "L", //left
+  T = "˄", //top
+  B = "˅", //bottom
+  R = "˃", //right
+  L = "˂", //left
   D = "D", //disabled
   U = "U", //unselected,
   I = "I" //Initial Path generation
@@ -14,6 +14,7 @@ export enum State {
 
 export interface Cell {
   state: State;
+  pathed: boolean;
   x: number;
   y: number;
   onCellClick: CallableFunction;

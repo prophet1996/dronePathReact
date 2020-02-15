@@ -62,7 +62,7 @@ const Grid: FunctionComponent<{ initialGridState: CellType[][] }> = ({
           <DronePathDirButton
             onClick={() =>
               setGridState(
-                generateStateWithPath(gridState, pathEnds, CellState.U)
+                generateStateWithPath(initialGridState, pathEnds, CellState.T)
               )
             }
           >
@@ -71,7 +71,7 @@ const Grid: FunctionComponent<{ initialGridState: CellType[][] }> = ({
           <DronePathDirButton
             onClick={() =>
               setGridState(
-                generateStateWithPath(gridState, pathEnds, CellState.D)
+                generateStateWithPath(initialGridState, pathEnds, CellState.B)
               )
             }
           >
@@ -90,8 +90,9 @@ const Grid: FunctionComponent<{ initialGridState: CellType[][] }> = ({
               <Cell
                 x={i}
                 y={j}
-                state={cell.state as CellState}
+                state={cell.state}
                 onCellClick={onCellClick}
+                pathed={cell.pathed}
               ></Cell>
             </CellWrapper>
           ))}
