@@ -20,6 +20,7 @@ export const GridWrapper = styled.div`
   display: flex;
   justify-content: normal;
   align-items: center;
+  overflow-x: scroll;
 `;
 
 export const DronePathButton = styled.span`

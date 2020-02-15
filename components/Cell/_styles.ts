@@ -7,7 +7,7 @@ export const StyledCell = styled.button`
   margin: auto;
   cursor: ${props => (props.disabled ? "not-allowed" : "pointer")};
   border: none;
-  padding: 1em;
+  padding: 16px;
   &:hover {
     box-shadow: ${props => props.theme.boxShadow};
   }

@@ -12,6 +12,45 @@ export const generateStateWithPath = (
       pathed: true,
       direction: dir
     } as CellType;
+    /* If both are on the same column just replace that column */
+    //check of they lie on same column
+    if (pathEnds[0].x === pathEnds[1].x && i === pathEnds[1].x) {
+      //which one S or E is Above the other
+      const singleDir =
+        pathEnds[0].y < pathEnds[1].y ? CellState.B : CellState.T;
+
+      if (pathEnds[0].y < pathEnds[1].y) {
+        //S is above E
+        newCol = col.map((cell, j) => {
+          if (j < pathEnds[0].y || j > pathEnds[1].y) return cell;
+          let singleState;
+          singleState = j === pathEnds[0].y ? CellState.S : singleDir;
+          singleState = j === pathEnds[1].y ? CellState.E : singleState;
+
+          return {
+            state: singleState,
+            pathed: true,
+            dir: singleDir
+          };
+        });
+      } else {
+        //E is above S
+        newCol = col.map((cell, j) => {
+          if (j > pathEnds[0].y || j < pathEnds[1].y) return cell;
+          let singleState;
+          singleState = j === pathEnds[0].y ? CellState.S : singleDir;
+          singleState = j === pathEnds[1].y ? CellState.E : singleState;
+
+          return {
+            state: singleState,
+            pathed: true,
+            dir: singleDir
+          };
+        });
+      }
+      return newCol;
+    }
+    /**If both are on diff column */
     const currReverseDir = dir === CellState.T ? CellState.B : CellState.T;
     const endDirection =
       (pathEnds[0].x - pathEnds[1].x) % 2 === 0 ? dir : currReverseDir;
@@ -62,6 +101,19 @@ export const generateStateWithPath = (
           direction: tempDir
         } as CellType;
       });
+
+      return newCol;
+    }
+    if (i < pathEnds[0].x && i > pathEnds[1].x) {
+      newCol = col.map((cell, j) => {
+        const tempDir = (i - pathEnds[1].x) % 2 === 0 ? dir : currReverseDir;
+        return {
+          state: tempDir,
+          pathed: true,
+          direction: tempDir
+        } as CellType;
+      });
+
       return newCol;
     } else return col;
   });

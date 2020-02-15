@@ -4,12 +4,17 @@ export default () => (
       * {
         box-sizing: border-box;
       }
-
+      ::-webkit-scrollbar {
+        width: 0px; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+      /* Optional: show position indicator in red */
+      ::-webkit-scrollbar-thumb {
+        background: #00000000;
+      }
       html,
       body,
       #__next {
-        height: 100%;
-        width: 100%;
       }
       body {
         margin: 0;
