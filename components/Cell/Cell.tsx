@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-// import { Grid as GridType } from "../../types";
 import { Cell as CellType, State as CellState } from "../../types";
 import { StyledCell } from "./_styles";
 

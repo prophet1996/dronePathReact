@@ -1,10 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface Grid {
-  gridX: number;
-  gridY: number;
-}
-
 export enum State {
   S = "S", //start
   E = "E", //end
@@ -13,7 +8,8 @@ export enum State {
   R = "R", //right
   L = "L", //left
   D = "D", //disabled
-  U = "U" //unselected
+  U = "U", //unselected,
+  I = "I" //Initial Path generation
 }
 
 export interface Cell {
@@ -21,6 +17,12 @@ export interface Cell {
   x: number;
   y: number;
   onCellClick: CallableFunction;
+}
+
+export interface CellType {
+  state: State;
+  pathed: boolean;
+  direction?: State;
 }
 
 export type useEffectDarkMode = (
@@ -32,3 +34,8 @@ export interface Theme {
   dark: boolean;
   hasThemeMounted: boolean;
 }
+
+export type PathEnd = {
+  x: number;
+  y: number;
+};

@@ -18,6 +18,27 @@ export const ColWrapper = styled.div`
 `;
 export const GridWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: normal;
   align-items: center;
+`;
+
+export const DronePathButton = styled.span`
+  background-color: #2196f3;
+  border: none;
+  border-radius: 2px;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  padding: 0.5em;
+  z-index: 1000;
+  font-size: smaller;
+`;
+
+export const DronePathDirButton = styled.button`
+  border: none;
+  color: white;
+  background-color: #2196f3;
+  cursor: pointer;
+  font-size: large;
+  font-weight: 900;
 `;

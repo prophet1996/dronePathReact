@@ -4,13 +4,20 @@ import Grid from "../components/Grid";
 import { ThemeProvider, useTheme } from "../hooks/useTheme";
 import { AppWrapper, GridHeading } from "../styles/pages";
 import GlobalStyles from "../styles/global";
+import { State as CellState, CellType } from "../types";
 
 const Home: NextPage = () => {
   const [gridX, setGridX] = useState(5);
   const [gridY, setGridY] = useState(5);
   const [showGrid, setShowGrid] = useState(false);
   const themeState = useTheme();
-
+  const defaultCellState: CellType = { state: CellState.U, pathed: false };
+  const initialGridState: CellType[][] =
+    gridX > 0 && gridY > 0
+      ? Array(gridX)
+          .fill(0)
+          .map(row => new Array(gridY).fill(defaultCellState))
+      : [];
   const logoSrc = `/logo-${themeState.dark ? "white" : "black"}.png`;
   return (
     <ThemeProvider>
@@ -46,7 +53,7 @@ const Home: NextPage = () => {
           Generate
         </button>
         {showGrid && gridX > 0 && gridY > 0 && (
-          <Grid gridX={gridX} gridY={gridY} />
+          <Grid initialGridState={initialGridState} />
         )}
       </AppWrapper>
     </ThemeProvider>
