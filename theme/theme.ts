@@ -28,6 +28,6 @@ const themeDark = {
   cardColor: cardWhite
 };
 
-const theme = (mode: string) => (mode === "dark" ? themeDark : themeLight);
+const theme = (mode: string) => (!(mode === "dark") ? themeDark : themeLight);
 
 export default theme;
