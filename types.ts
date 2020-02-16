@@ -8,7 +8,7 @@ export enum State {
   R = "˃", //right
   L = "˂", //left
   D = "D", //disabled
-  U = "U", //unselected,
+  U = "•", //unselected,
   I = "I", //Initial Path generation,
   G = "G"
 }

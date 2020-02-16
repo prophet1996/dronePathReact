@@ -4,13 +4,18 @@ export default () => (
       * {
         box-sizing: border-box;
       }
+
       ::-webkit-scrollbar {
-        width: 0px; /* Remove scrollbar space */
-        background: transparent; /* Optional: just make scrollbar invisible */
+        width: 12px;
       }
-      /* Optional: show position indicator in red */
+
+      ::-webkit-scrollbar-track {
+        background: #18181855;
+      }
+
       ::-webkit-scrollbar-thumb {
-        background: #00000000;
+        border-radius: 2px;
+        background: #181818aa;
       }
       html,
       body,
