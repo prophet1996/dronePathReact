@@ -14,9 +14,10 @@ import {
   DronePathDirButton
 } from "./_styles";
 
-const Grid: FunctionComponent<{ initialGridState: CellType[][] }> = ({
-  initialGridState
-}) => {
+const Grid: FunctionComponent<{
+  initialGridState: CellType[][];
+  saveMission: CallableFunction;
+}> = ({ initialGridState, saveMission }) => {
   //Grid will tell what the state of next Clicked cell will be on Click
   const [gridState, setGridState] = useState(initialGridState);
   const [action, setAction] = useState(CellState.S);
@@ -98,6 +99,9 @@ const Grid: FunctionComponent<{ initialGridState: CellType[][] }> = ({
           ))}
         </ColWrapper>
       ))}
+      <button type="button" onClick={() => saveMission(gridState)}>
+        SAVE this Mission
+      </button>
     </GridWrapper>
   );
 };
