@@ -5,6 +5,14 @@ import { ThemeProvider, useTheme } from "../hooks/useTheme";
 import { AppWrapper, GridHeading } from "../styles/pages";
 import GlobalStyles from "../styles/global";
 import { State as CellState, CellType } from "../types";
+import fetch from "unfetch";
+import swr from "swr";
+
+const saveMission = async () => {
+  const res = await fetch("/api/mission", { method: "PUT" });
+  const json = await res.json();
+  return json;
+};
 
 const Home: NextPage = () => {
   const [gridX, setGridX] = useState(5);
@@ -55,6 +63,9 @@ const Home: NextPage = () => {
         {showGrid && gridX > 0 && gridY > 0 && (
           <Grid initialGridState={initialGridState} />
         )}
+        <button type="button" onClick={saveMission}>
+          SAVE this Mission
+        </button>
       </AppWrapper>
     </ThemeProvider>
   );
