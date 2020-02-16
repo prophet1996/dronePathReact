@@ -85,7 +85,7 @@ const Home: NextPage = () => {
           style={{ position: "absolute", top: "0", right: "0", margin: "1em" }}
         />
         <GridInputWrapper>
-          <GridHeading>Enter the grid size</GridHeading>
+          <GridHeading>ENTER THE GRID SIZE</GridHeading>
           <input
             name="gridX"
             onChange={e => {
@@ -116,7 +116,7 @@ const Home: NextPage = () => {
           </button>
           <button
             type="button"
-            title="Download a JSON that give 5 latest saved missions"
+            title="Download a JSON that give 5 latest savedumissions"
             onClick={() => getAllMissions(5)}
           >
             Get all Mission

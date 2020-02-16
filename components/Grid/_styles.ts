@@ -12,6 +12,7 @@ export const RowHeading = styled.span`
   float: left;
   left: -2em;
   position: absolute;
+  margin-top: 42%;
 `;
 export const ColWrapper = styled.div`
   margin: 2em;
