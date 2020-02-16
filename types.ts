@@ -9,7 +9,8 @@ export enum State {
   L = "˂", //left
   D = "D", //disabled
   U = "U", //unselected,
-  I = "I" //Initial Path generation
+  I = "I", //Initial Path generation,
+  G = "G"
 }
 
 export interface Cell {

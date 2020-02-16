@@ -29,7 +29,7 @@ const Grid: FunctionComponent<{
   const [pathEnds, setPathEnds] = useState(defaultPathEnds);
 
   const onCellClick = (x: number, y: number) => {
-    if (action === CellState.I) {
+    if (action === CellState.I || action === CellState.G) {
       setAction(CellState.S);
       setGridState(initialGridState);
     } else if (action === CellState.E || action === CellState.S) {
@@ -57,30 +57,46 @@ const Grid: FunctionComponent<{
 
   return (
     <GridWrapper>
-      {action === CellState.I && (
+      {(action === CellState.I || action === CellState.G) && (
         <DronePathButton>
           Generate Drone Path{" "}
           <DronePathDirButton
-            onClick={() =>
+            onClick={() => {
               setGridState(
                 generateStateWithPath(initialGridState, pathEnds, CellState.T)
-              )
-            }
+              );
+              return setAction(CellState.G);
+            }}
           >
             ↑
           </DronePathDirButton>
           <DronePathDirButton
-            onClick={() =>
+            onClick={() => {
               setGridState(
                 generateStateWithPath(initialGridState, pathEnds, CellState.B)
-              )
-            }
+              );
+              return setAction(CellState.G);
+            }}
           >
             {" "}
             ↓
           </DronePathDirButton>
+          <DronePathDirButton
+            type="button"
+            onClick={() => saveMission(gridState)}
+            disabled={action !== CellState.G}
+          >
+            💾
+          </DronePathDirButton>
+          <DronePathDirButton
+            type="button"
+            onClick={() => setGridState(initialGridState)}
+          >
+            🗘
+          </DronePathDirButton>
         </DronePathButton>
       )}
+
       {gridState.map((col, i) => (
         <ColWrapper key={`col-${i}`}>
           <ColHeading> Col {i}</ColHeading>
@@ -99,9 +115,6 @@ const Grid: FunctionComponent<{
           ))}
         </ColWrapper>
       ))}
-      <button type="button" onClick={() => saveMission(gridState)}>
-        SAVE this Mission
-      </button>
     </GridWrapper>
   );
 };

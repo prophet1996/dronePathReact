@@ -109,12 +109,12 @@ const Home: NextPage = () => {
         <button onClick={() => setShowGrid(true)} type="button">
           Generate
         </button>
-        {showGrid && gridX > 0 && gridY > 0 && (
-          <Grid initialGridState={initialGridState} saveMission={saveMission} />
-        )}
         <button type="button" onClick={() => getAllMissions(5)}>
           Get all Mission
         </button>
+        {showGrid && gridX > 0 && gridY > 0 && (
+          <Grid initialGridState={initialGridState} saveMission={saveMission} />
+        )}
       </AppWrapper>
     </ThemeProvider>
   );

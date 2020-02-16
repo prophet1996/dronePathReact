@@ -28,11 +28,12 @@ export const DronePathButton = styled.span`
   border: none;
   border-radius: 2px;
   position: absolute;
-  top: 5%;
+  bottom: 5%;
   right: 5%;
   padding: 0.5em;
   z-index: 1000;
   font-size: smaller;
+  cursor: default;
 `;
 
 export const DronePathDirButton = styled.button`
