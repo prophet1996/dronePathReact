@@ -61,6 +61,7 @@ const Grid: FunctionComponent<{
         <DronePathButton>
           Generate Drone Path{" "}
           <DronePathDirButton
+            title="Generate drown path in Up direction"
             onClick={() => {
               setGridState(
                 generateStateWithPath(initialGridState, pathEnds, CellState.T)
@@ -71,6 +72,7 @@ const Grid: FunctionComponent<{
             ↑
           </DronePathDirButton>
           <DronePathDirButton
+            title="Generate drown path in Down direction"
             onClick={() => {
               setGridState(
                 generateStateWithPath(initialGridState, pathEnds, CellState.B)
@@ -82,6 +84,7 @@ const Grid: FunctionComponent<{
             ↓
           </DronePathDirButton>
           <DronePathDirButton
+            title="Save Mission to the database"
             type="button"
             onClick={() => saveMission(gridState)}
             disabled={action !== CellState.G}
@@ -89,6 +92,7 @@ const Grid: FunctionComponent<{
             💾
           </DronePathDirButton>
           <DronePathDirButton
+            title="Reset drone path"
             type="button"
             onClick={() => setGridState(initialGridState)}
           >

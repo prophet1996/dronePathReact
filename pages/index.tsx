@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { useState } from "react";
 import Grid from "../components/Grid";
 import { ThemeProvider, useTheme } from "../hooks/useTheme";
-import { AppWrapper, GridHeading } from "../styles/pages";
+import { AppWrapper, GridHeading, GridInputWrapper } from "../styles/pages";
 import GlobalStyles from "../styles/global";
 import { State as CellState, CellType } from "../types";
 import fetch from "unfetch";
@@ -75,7 +75,7 @@ const Home: NextPage = () => {
           .fill(0)
           .map(row => new Array(gridY).fill(defaultCellState))
       : [];
-  const logoSrc = `/logo-${themeState.dark ? "white" : "black"}.png`;
+  const logoSrc = `/logo-white.png`;
   return (
     <ThemeProvider>
       <AppWrapper>
@@ -84,34 +84,44 @@ const Home: NextPage = () => {
           src={logoSrc}
           style={{ position: "absolute", top: "0", right: "0", margin: "1em" }}
         />
-        <GridHeading>Enter the grid size</GridHeading>
-        <input
-          name="gridX"
-          onChange={e => {
-            setShowGrid(false);
+        <GridInputWrapper>
+          <GridHeading>Enter the grid size</GridHeading>
+          <input
+            name="gridX"
+            onChange={e => {
+              setShowGrid(false);
 
-            return setGridX(parseInt(e.target.value, 10));
-          }}
-          value={String(gridX)}
-          type="number"
-          min="0"
-        ></input>
-        <input
-          name="gridY"
-          onChange={e => {
-            setShowGrid(false);
-            return setGridY(parseInt(e.target.value, 10));
-          }}
-          value={String(gridY)}
-          type="number"
-          min="0"
-        ></input>
-        <button onClick={() => setShowGrid(true)} type="button">
-          Generate
-        </button>
-        <button type="button" onClick={() => getAllMissions(5)}>
-          Get all Mission
-        </button>
+              return setGridX(parseInt(e.target.value, 10));
+            }}
+            value={String(gridX)}
+            type="number"
+            min="0"
+          ></input>
+          <input
+            name="gridY"
+            onChange={e => {
+              setShowGrid(false);
+              return setGridY(parseInt(e.target.value, 10));
+            }}
+            value={String(gridY)}
+            type="number"
+            min="0"
+          ></input>
+          <button
+            title="Generate an XxY Grid"
+            onClick={() => setShowGrid(true)}
+            type="button"
+          >
+            Generate
+          </button>
+          <button
+            type="button"
+            title="Download a JSON that give 5 latest saved missions"
+            onClick={() => getAllMissions(5)}
+          >
+            Get all Mission
+          </button>
+        </GridInputWrapper>
         {showGrid && gridX > 0 && gridY > 0 && (
           <Grid initialGridState={initialGridState} saveMission={saveMission} />
         )}
